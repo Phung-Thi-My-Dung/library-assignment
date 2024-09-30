@@ -4,9 +4,6 @@
 #include <math.h>
 // Tao cac array de luu du lieu
 
-
-
-
 //CHUONG TRINH CHINH 
 int main ()
 {
