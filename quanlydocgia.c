@@ -36,8 +36,7 @@ void xemdocgiafunction()
                 printf("Dia chi: %s\n", diachi[i]);
             }
         }
-        break;
-
+    break;
     }
 }
 // Ham them doc gia
@@ -63,7 +62,7 @@ void themdocgiafunction()
         printf("\nMa doc gia: %s\n", madocgia[count]);
         printf("Ho va ten doc gia: ");
         fgets(hotendocgia[count], MAX_VALUE, stdin);
-        printf("CMND: ");
+        printf("CMND (10 so): ");
         fgets(cmnd[count], MAX_VALUE, stdin);
         printf("Ngay thang nam sinh: ");
         fgets(ngaythangnamsinh[count], MAX_VALUE, stdin);
@@ -110,6 +109,45 @@ void themdocgiafunction()
         }
     }
 }
+// Ham tim kiem doc gia theo CMND
+void timkiemcmndfunction()
+{   while(1)
+    {
+        char choice;
+        int i;
+        // Bien luu noi dung CMND tim kiem cua nguoi dung
+        char tempcmnd[11];
+        printf("Nhap cmnd can tim (10 so): ");
+        scanf("%s", tempcmnd);
+        for (i=0; i<count; i++)
+            {
+                if (strcmp(tempcmnd, cmnd[i]) == 0)
+                //In doc gia da tim thay
+                {
+                    printf("Ma doc gia: %s\n", madocgia[i]);
+                    printf("Ho ten doc gia: %s\n", hotendocgia[i]);
+                    printf("CMND: %s\n", cmnd[i]);
+                    printf("Ngay thang nam sinh: %s\n", ngaythangnamsinh[i]);
+                    printf("Gioi tinh: %s\n", gioitinh[i]);
+                    printf("Email: %s\n", email[i]);
+                    printf("Dia chi: %s\n", diachi[i]);
+                    break;
+                }
+            }
+            if (i==count)
+            {
+                printf("Khong tim thay doc gia.");
+            }
+        // Hoi co muon tim kiem tiep khong?
+        printf("Ban co muon tim kiem tiep doc gia bang CMND khong? y/n: ");
+        scanf(" %c", &choice);
+        getchar();  // Xóa ký tự newline còn sót lại sau scanf
+        if (choice == 'n' || choice == 'N')
+        {
+            break;
+        }
+    }
+}
 
 int main()
 {
@@ -144,7 +182,7 @@ int main()
                 printf("Xoa thong tin doc gia.\n");
                 break;
             case 5:
-                printf("Tim kiem doc gia theo CMND.\n");
+                timkiemcmndfunction();
                 break;
             case 6:
                 printf("Tim kiem doc gia theo ho ten.\n");
