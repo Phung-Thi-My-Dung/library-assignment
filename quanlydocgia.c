@@ -13,7 +13,34 @@ char *email[MAX_VALUE];
 char *diachi[MAX_VALUE];
 
 int count = 0;
+// Ham xem danh sach doc gia
+void xemdocgiafunction() 
+{
+    while(1)
+    {
+        if (count == 0) 
+        {
+            printf("Khong co doc gia nao hien co.\n");
+        } else 
+        {
+            printf("Danh sach cac doc gia:\n");
+            printf("So luong doc gia: %d\n", count);
+            for (int i = 0; i < count; i++) 
+            {
+                printf("Ma doc gia: %s\n", madocgia[i]);
+                printf("Ho va ten: %s\n", hotendocgia[i]);
+                printf("CMND: %s\n", cmnd[i]);
+                printf("Ngay thang nam sinh: %s\n", ngaythangnamsinh[i]);
+                printf("Gioi tinh: %s\n", gioitinh[i]);
+                printf("Email: %s\n", email[i]);
+                printf("Dia chi: %s\n", diachi[i]);
+            }
+        }
+        break;
 
+    }
+}
+// Ham them doc gia
 void themdocgiafunction()
 {
     char choice;
@@ -30,7 +57,7 @@ void themdocgiafunction()
         diachi[count] = malloc(MAX_VALUE * sizeof(char));
 
         // Tự tạo mã độc giả
-        sprintf(madocgia[count], "%03d", count + 1);
+        sprintf(madocgia[count], "%03d", count);
 
         // Nhập thông tin độc giả từ người dùng
         printf("\nMa doc gia: %s\n", madocgia[count]);
@@ -105,7 +132,7 @@ int main()
         switch (luachon)
         {
             case 1:
-                printf("Xem danh sach doc gia.\n");
+                xemdocgiafunction();
                 break;
             case 2:
                 themdocgiafunction();
