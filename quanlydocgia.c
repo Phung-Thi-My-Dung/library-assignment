@@ -215,7 +215,9 @@ int timkiemcmndfunction()
             {
                 if (strcmp(tempcmnd, cmnd[i]) == 0)
                 //In doc gia da tim thay
-                {
+                {   
+                    index = i;
+                    printf ("%d", index);
                     printf("Ma doc gia: %s\n", madocgia[i]);
                     printf("Ho ten doc gia: %s\n", hotendocgia[i]);
                     printf("CMND: %s\n", cmnd[i]);
@@ -226,9 +228,11 @@ int timkiemcmndfunction()
                     break;
                 }
             }
-            if (index=-1)
-            {
+            if (index == -1)
+            {   
+                printf ("%d", index);
                 printf("Khong tim thay doc gia.");
+                break;
             }
         // Hoi co muon tim kiem tiep khong?
         printf("Ban co muon tim kiem tiep doc gia bang CMND khong? y/n: ");
@@ -236,8 +240,10 @@ int timkiemcmndfunction()
         getchar();  // Xóa ký tự newline còn sót lại sau scanf
         if (choice == 'n' || choice == 'N')
         {
+            printf ("%d", index);
             return index;
         }
+        
     }
 }
 // Ham tim kiem doc gia theo ho ten
