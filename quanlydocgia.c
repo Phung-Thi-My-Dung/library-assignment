@@ -109,12 +109,104 @@ void themdocgiafunction()
         }
     }
 }
+// Prototype của hàm tìm kiếm CMND
+int timkiemcmndfunction();
+// Ham chinh sua thong tin 1 doc gia
+void chinhsuadocgia()
+{
+    while(1)
+    {
+        int index = -1;
+        int choice;
+        char luachon;
+        int i;
+        index = timkiemcmndfunction();
+        if (index != -1)
+            {
+                while(1)
+                    {
+                        printf("\nBan muon sua thong tin gi?\n");
+                        printf("1. Ho ten\n");
+                        printf("2. CMND\n");
+                        printf("3. Ngay thang nam sinh\n");
+                        printf("4. Gioi tinh\n");
+                        printf("5. Email\n");
+                        printf("6. Dia chi\n");
+                        printf("0. Thoat\n");
+                        printf("Nhap so tuong ung voi thong tin muon sua: ");
+                        scanf("%d", &choice);
+                        getchar();  
+                        switch (choice)
+                        {
+                            case 1: 
+                                printf("Nhap ho ten moi: ");
+                                fgets(hotendocgia[index], MAX_VALUE, stdin);
+                                hotendocgia[index][strcspn(hotendocgia[index], "\n")] = 0;
+                                printf("Ho ten da duoc cap nhat.\n");
+                                break;
+                            case 2:
+                                printf("Nhap CMND moi: ");
+                                fgets(cmnd[index], MAX_VALUE, stdin);
+                                cmnd[index][strcspn(cmnd[index], "\n")] = 0;
+                                printf("CMND da duoc cap nhat.\n");
+                                break;
+                            case 3:
+                                printf("Nhap ngay thang nam sinh moi: ");
+                                fgets(ngaythangnamsinh[index], MAX_VALUE, stdin);
+                                ngaythangnamsinh[index][strcspn(ngaythangnamsinh[index], "\n")] = 0;
+                                printf("Ngay thang nam sinh da duoc cap nhat.\n");
+                                break;
+                            case 4: 
+                                printf("Nhap gioi tinh moi: ");
+                                fgets(gioitinh[index], MAX_VALUE, stdin);
+                                gioitinh[index][strcspn(gioitinh[index], "\n")] = 0;
+                                printf("Ho ten da duoc cap nhat.\n");
+                                break;
+                            case 5: 
+                                printf("Nhap email moi: ");
+                                fgets(email[index], MAX_VALUE, stdin);
+                                email[index][strcspn(email[index], "\n")] = 0;
+                                printf("Email da duoc cap nhat.\n");
+                                break;
+                            case 6:
+                                printf("Nhap dia chi moi: ");
+                                fgets(diachi[index], MAX_VALUE, stdin);
+                                diachi[index][strcspn(diachi[index], "\n")] = 0;
+                                printf("Dia chi da duoc cap nhat.\n");
+                                break;
+                            case 0: 
+                                return;
+                        }
+                    // In thong tin nguoi vua sua
+                    printf("\nThong tin doc gia sau khi sua la:\n");
+                    printf("Ma doc gia: %s\n", madocgia[index]);
+                    printf("Ho ten doc gia: %s\n", hotendocgia[index]);
+                    printf("CMND: %s\n", cmnd[index]);
+                    printf("Ngay thang nam sinh: %s\n", ngaythangnamsinh[index]);
+                    printf("Gioi tinh: %s\n", gioitinh[index]);
+                    printf("Email: %s\n", email[index]);
+                    printf("Dia chi: %s\n", diachi[index]);
+                    }
+            }
+        if (index = -1)
+            printf("Khong tim thay doc gia.");
+        // Hỏi nhập người dùng tiếp hay thoát
+        printf("Ban co muon nhap nguoi dung khac khong? y/n: ");
+        scanf(" %c", &luachon);
+        getchar();  // Xóa ký tự newline còn sót lại sau scanf
+        if (luachon == 'n' || luachon == 'N')
+        {
+            break;  
+        }
+    }
+}
 // Ham tim kiem doc gia theo CMND
-void timkiemcmndfunction()
+int timkiemcmndfunction()
 {   while(1)
     {
         char choice;
         int i;
+        int index = -1;
         // Bien luu noi dung CMND tim kiem cua nguoi dung
         char tempcmnd[11];
         printf("Nhap cmnd can tim (10 so): ");
@@ -134,7 +226,7 @@ void timkiemcmndfunction()
                     break;
                 }
             }
-            if (i==count)
+            if (index=-1)
             {
                 printf("Khong tim thay doc gia.");
             }
@@ -144,12 +236,12 @@ void timkiemcmndfunction()
         getchar();  // Xóa ký tự newline còn sót lại sau scanf
         if (choice == 'n' || choice == 'N')
         {
-            break;
+            return index;
         }
     }
 }
 // Ham tim kiem doc gia theo ho ten
-void timkiemhoten()
+void timkiemhotenfunction()
 {
     while (1)
     {
@@ -219,7 +311,7 @@ int main()
                 themdocgiafunction();
                 break;
             case 3:
-                printf("Chinh sua thong tin doc gia.\n");
+                chinhsuadocgia();
                 break;
             case 4:
                 printf("Xoa thong tin doc gia.\n");
@@ -228,7 +320,7 @@ int main()
                 timkiemcmndfunction();
                 break;
             case 6:
-                timkiemhoten();
+                timkiemhotenfunction();
                 break;
             case 7:
                 printf("Ve chuong trinh chinh.\n");
