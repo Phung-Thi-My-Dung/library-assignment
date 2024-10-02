@@ -148,7 +148,50 @@ void timkiemcmndfunction()
         }
     }
 }
-
+// Ham tim kiem doc gia theo ho ten
+void timkiemhoten()
+{
+    while (1)
+    {
+    char choice;
+    int i;
+    //mang luu ho ten nguoi dung nhap vao
+    char *temphoten = malloc(MAX_VALUE * sizeof(char));
+    //nhap thong tin tu nguoi dung
+    printf("Nhap ho ten muon tim: ");
+    fgets(temphoten, MAX_VALUE, stdin);
+    //xoa ky tu newline cho fgets
+    temphoten[strcspn(temphoten, "\n")] = 0;
+    for (i=0; i<count; i++)
+        {
+            if (strcmp(temphoten, hotendocgia[i]) == 0)
+                {
+                    printf("Ma doc gia: %s\n", madocgia[i]);
+                    printf("Ho ten doc gia: %s\n", hotendocgia[i]);
+                    printf("CMND: %s\n", cmnd[i]);
+                    printf("Ngay thang nam sinh: %s\n", ngaythangnamsinh[i]);
+                    printf("Gioi tinh: %s\n", gioitinh[i]);
+                    printf("Email: %s\n", email[i]);
+                    printf("Dia chi: %s\n", diachi[i]);
+                    break;
+                }
+        }
+        if (i==count)
+            {
+                printf("Khong tim thay doc gia.");
+            }
+    free(temphoten);
+    // Hoi ban co muon tim kiem tiep hay thoat
+        printf("Ban co muon tim kiem tiep doc gia bang ho ten khong? y/n: ");
+        scanf(" %c", &choice);
+        getchar();  // Xóa ký tự newline còn sót lại sau scanf
+        if (choice == 'n' || choice == 'N')
+        {
+            break;
+        }
+    
+    }
+}
 int main()
 {
     int luachon;
@@ -185,7 +228,7 @@ int main()
                 timkiemcmndfunction();
                 break;
             case 6:
-                printf("Tim kiem doc gia theo ho ten.\n");
+                timkiemhoten();
                 break;
             case 7:
                 printf("Ve chuong trinh chinh.\n");
