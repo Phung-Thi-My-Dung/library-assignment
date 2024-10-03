@@ -188,7 +188,7 @@ void chinhsuadocgia()
                     printf("Dia chi: %s\n", diachi[index]);
                     }
             }
-        if (index = -1)
+        if (index == -1)
             printf("Khong tim thay doc gia.");
         // Hỏi nhập người dùng tiếp hay thoát
         printf("Ban co muon nhap nguoi dung khac khong? y/n: ");
@@ -198,6 +198,54 @@ void chinhsuadocgia()
         {
             break;  
         }
+    }
+}
+// Ham xoa doc gia
+void xoadocgiafunction()
+{
+    while (1)
+    {
+        int index = -1;
+        char choice, luachon;
+        int i;
+        index = timkiemcmndfunction();
+        if (index != -1)
+            {
+            // Hoi ban co muon xoa doc gia nay khong?
+            printf("Ban co muon xoa doc gia nay khong? y/n\n");
+            scanf(" %c", &choice);
+            getchar();
+            if (choice == 'y' || choice == 'Y')
+                {
+                    for (i = index; i < count - 1; i++)
+                    {
+                        strcpy (madocgia[i], madocgia[i+1]);
+                        strcpy(hotendocgia[i], hotendocgia[i + 1]);
+                        strcpy(cmnd[i], cmnd[i + 1]);
+                        strcpy(ngaythangnamsinh[i], ngaythangnamsinh[i + 1]);
+                        strcpy(gioitinh[i], gioitinh[i + 1]);
+                        strcpy(email[i], email[i + 1]);
+                        strcpy(diachi[i], diachi[i + 1]);
+                    }
+                count--;
+                printf("Xoa doc gia thanh cong.\n");
+                }
+            else
+            {
+                printf("Huy thao tac xoa doc gia.\n");
+            }
+        }
+        else 
+        {
+            printf("Khong tim thay doc gia.\n");
+        }
+        // Hỏi nhập người dùng tiếp hay thoát
+        printf("Ban co muon xoa nguoi dung khac khong? y/n: ");
+        scanf(" %c", &luachon);     
+        if (luachon == 'n' || luachon == 'N')
+        {
+            break;  
+        }       
     }
 }
 // Ham tim kiem doc gia theo CMND
@@ -230,7 +278,6 @@ int timkiemcmndfunction()
             }
             if (index == -1)
             {   
-                printf ("%d", index);
                 printf("Khong tim thay doc gia.");
                 break;
             }
@@ -240,7 +287,6 @@ int timkiemcmndfunction()
         getchar();  // Xóa ký tự newline còn sót lại sau scanf
         if (choice == 'n' || choice == 'N')
         {
-            printf ("%d", index);
             return index;
         }
         
@@ -320,7 +366,7 @@ int main()
                 chinhsuadocgia();
                 break;
             case 4:
-                printf("Xoa thong tin doc gia.\n");
+                xoadocgiafunction();
                 break;
             case 5:
                 timkiemcmndfunction();
