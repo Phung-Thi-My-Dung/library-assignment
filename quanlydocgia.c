@@ -112,7 +112,7 @@ void themdocgiafunction()
 // Prototype của hàm tìm kiếm CMND
 int timkiemcmndfunction();
 // Ham chinh sua thong tin 1 doc gia
-void chinhsuadocgia()
+void chinhsuadocgiafunction()
 {
     while(1)
     {
@@ -160,7 +160,7 @@ void chinhsuadocgia()
                                 printf("Nhap gioi tinh moi: ");
                                 fgets(gioitinh[index], MAX_VALUE, stdin);
                                 gioitinh[index][strcspn(gioitinh[index], "\n")] = 0;
-                                printf("Ho ten da duoc cap nhat.\n");
+                                printf("Gioi tinh moi da duoc cap nhat.\n");
                                 break;
                             case 5: 
                                 printf("Nhap email moi: ");
@@ -191,7 +191,7 @@ void chinhsuadocgia()
         if (index == -1)
             printf("Khong tim thay doc gia.");
         // Hỏi nhập người dùng tiếp hay thoát
-        printf("Ban co muon nhap nguoi dung khac khong? y/n: ");
+        printf("Ban co muon sua thong tin doc gia khac khong? y/n: ");
         scanf(" %c", &luachon);
         getchar();  // Xóa ký tự newline còn sót lại sau scanf
         if (luachon == 'n' || luachon == 'N')
@@ -265,7 +265,6 @@ int timkiemcmndfunction()
                 //In doc gia da tim thay
                 {   
                     index = i;
-                    printf ("%d", index);
                     printf("Ma doc gia: %s\n", madocgia[i]);
                     printf("Ho ten doc gia: %s\n", hotendocgia[i]);
                     printf("CMND: %s\n", cmnd[i]);
@@ -279,7 +278,6 @@ int timkiemcmndfunction()
             if (index == -1)
             {   
                 printf("Khong tim thay doc gia.");
-                break;
             }
         // Hoi co muon tim kiem tiep khong?
         printf("Ban co muon tim kiem tiep doc gia bang CMND khong? y/n: ");
@@ -363,7 +361,7 @@ int main()
                 themdocgiafunction();
                 break;
             case 3:
-                chinhsuadocgia();
+                chinhsuadocgiafunction();
                 break;
             case 4:
                 xoadocgiafunction();
