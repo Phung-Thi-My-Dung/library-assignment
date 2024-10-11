@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <quanlydocgia.h>
-#include <quanlysach.h>
+#include "quanlydocgia.h"
+#include "quanlysach.h"
 // 3. array luu phieu muon/ tra sach
 #define MAX_VALUE 100
 int *phieumuon[MAX_VALUE];
