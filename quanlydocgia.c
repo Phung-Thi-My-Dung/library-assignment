@@ -11,6 +11,13 @@ char *ngaythangnamsinh[MAX_VALUE];
 char *gioitinh[MAX_VALUE];
 char *email[MAX_VALUE];
 char *diachi[MAX_VALUE];
+int *ngaylapthe[MAX_VALUE];
+int *thanglapthe[MAX_VALUE];
+int *namlapthe[MAX_VALUE];
+int *ngayhethanthe[MAX_VALUE];
+int *thanghethanthe[MAX_VALUE];
+int *namhethanthe[MAX_VALUE];
+int tinhtrangthe;
 
 int count = 0;
 // Ham xem danh sach doc gia
@@ -334,7 +341,7 @@ void timkiemhotenfunction()
     
     }
 }
-int main()
+int quanlydocgia()
 {
     int luachon;
 

@@ -11,6 +11,7 @@ char *namxuatban[MAX_VALUE];
 char *theloaisach[MAX_VALUE];
 char *giasach[MAX_VALUE];
 char *soquyensach[MAX_VALUE];
+char *soluongthucte[MAX_VALUE];
 int count = 0;
 // Ham xem danh sach sach trong thu vien
 void xemsachfunction() 
@@ -35,6 +36,7 @@ void xemsachfunction()
                 printf("The loai sach: %s\n", theloaisach[i]);
                 printf("Gia sach: %s\n", giasach[i]);
                 printf("So quyen sach: %s\n", soquyensach[i]);
+                printf("So luong thuc te sach: %s\n", soluongthucte[i]);
             }
         }
     break;
@@ -56,6 +58,7 @@ void themsachfunction()
         theloaisach[count] = malloc(MAX_VALUE * sizeof(char));
         giasach[count] = malloc(MAX_VALUE * sizeof(char));
         soquyensach[count] = malloc(MAX_VALUE * sizeof(char));
+        soluongthucte[count] = malloc(MAX_VALUE * sizeof(char));
 
         // Nhập thông tin độc giả từ người dùng
         printf("ISBN sach (10 so): ");
@@ -74,6 +77,8 @@ void themsachfunction()
         fgets(giasach[count], MAX_VALUE, stdin);
         printf("So quyen sach: ");
         fgets(soquyensach[count], MAX_VALUE, stdin);
+        printf("So luong sach thuc te: ");
+        fgets(soluongthucte[count], MAX_VALUE, stdin);
 
         // Xóa ký tự newline (\n) cuối chuỗi của fgets
         isbn[count][strcspn(isbn[count], "\n")] = 0;
@@ -84,6 +89,7 @@ void themsachfunction()
         theloaisach[count][strcspn(theloaisach[count], "\n")] = 0;
         giasach[count][strcspn(giasach[count], "\n")] = 0;
         soquyensach[count][strcspn(soquyensach[count], "\n")] = 0;
+        soluongthucte[count][strcspn(soluongthucte[count], "\n")] = 0;
 
         // Tăng biến count sau khi thêm sach
         count++;
@@ -109,6 +115,7 @@ void themsachfunction()
                 printf("The loai sach: %s\n", theloaisach[i]);
                 printf("Gia sach: %s\n", giasach[i]);
                 printf("So quyen sach: %s\n", soquyensach[i]);
+                printf("So luong sach thuc te: %s\n", soluongthucte[i]);
             }
             break;
         }
@@ -248,6 +255,7 @@ void xoasachfunction()
                         strcpy(theloaisach[i], theloaisach[i + 1]);
                         strcpy(giasach[i], giasach[i + 1]);
                         strcpy(soquyensach[i], soquyensach[i + 1]);
+                        strcpy(soluongthucte[i], soluongthucte[i + 1]);
                     }
                 count--;
                 printf("Xoa sach thanh cong.\n");
@@ -296,6 +304,7 @@ int timkiemisbnfunction()
                     printf("The loai sach: %s\n", theloaisach[i]);
                     printf("Gia sach: %s\n", giasach[i]);
                     printf("So quyen sach: %s\n", soquyensach[i]);
+                    printf("So luong sach thuc te: %s\n", soluongthucte[i]);
                     break;
                 }
             }
@@ -340,6 +349,7 @@ void timkiemsachtheotensach()
                     printf("The loai sach: %s\n", theloaisach[i]);
                     printf("Gia sach: %s\n", giasach[i]);
                     printf("So quyen sach: %s\n", soquyensach[i]);
+                    printf("So luong sach thuc te: %s\n", soluongthucte[i]);
                     break;
                 }
         }
@@ -360,7 +370,7 @@ void timkiemsachtheotensach()
     }
 }
 
-int main()
+int quanlysach()
 {
     int luachon;
 
