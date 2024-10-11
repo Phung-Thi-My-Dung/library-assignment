@@ -22,10 +22,13 @@ int main ()
         switch (luachon)
         {
             case 1:
+                quanlydocgia();
                 break;
             case 2:
+                quanlysach();
                 break;
             case 3:
+                
                 break;
             case 4:
                 break;
