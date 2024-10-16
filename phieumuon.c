@@ -72,7 +72,7 @@ void phieumuonmoifunction()
 }
 
 // Ham lap phieu muon
-int lapphieumuon()
+int main()
 {
 while(1)
 {
