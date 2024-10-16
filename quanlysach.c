@@ -12,20 +12,20 @@ char *theloaisach[MAX_VALUE];
 char *giasach[MAX_VALUE];
 char *soquyensach[MAX_VALUE];
 char *soluongthucte[MAX_VALUE];
-int count = 0;
+int countSach = 0;
 // Ham xem danh sach sach trong thu vien
 void xemsachfunction() 
 {
     while(1)
     {
-        if (count == 0) 
+        if (countSach == 0) 
         {
             printf("Khong co sach nao hien co.\n");
         } else 
         {
             printf("Danh sach cac sach:\n");
-            printf("So luong sach vua them: %d\n", count);
-            for (int i = 0; i < count; i++) 
+            printf("So luong sach vua them: %d\n", countSach);
+            for (int i = 0; i < countSach; i++) 
             {
                 printf("Danh sach sach vua them la:\n");
                 printf("ISBN: %s\n", isbn[i]);
@@ -50,49 +50,49 @@ void themsachfunction()
     while (1)
     {
         // Cấp phát bộ nhớ cho chuỗi con trỏ
-        isbn[count] = malloc(MAX_VALUE * sizeof(char));
-        tensach[count] = malloc(MAX_VALUE * sizeof(char));
-        tacgia[count] = malloc(MAX_VALUE * sizeof(char));
-        nhaxuatban[count] = malloc(MAX_VALUE * sizeof(char));
-        namxuatban[count] = malloc(MAX_VALUE * sizeof(char));
-        theloaisach[count] = malloc(MAX_VALUE * sizeof(char));
-        giasach[count] = malloc(MAX_VALUE * sizeof(char));
-        soquyensach[count] = malloc(MAX_VALUE * sizeof(char));
-        soluongthucte[count] = malloc(MAX_VALUE * sizeof(char));
+        isbn[countSach] = malloc(MAX_VALUE * sizeof(char));
+        tensach[countSach] = malloc(MAX_VALUE * sizeof(char));
+        tacgia[countSach] = malloc(MAX_VALUE * sizeof(char));
+        nhaxuatban[countSach] = malloc(MAX_VALUE * sizeof(char));
+        namxuatban[countSach] = malloc(MAX_VALUE * sizeof(char));
+        theloaisach[countSach] = malloc(MAX_VALUE * sizeof(char));
+        giasach[countSach] = malloc(MAX_VALUE * sizeof(char));
+        soquyensach[countSach] = malloc(MAX_VALUE * sizeof(char));
+        soluongthucte[countSach] = malloc(MAX_VALUE * sizeof(char));
 
         // Nhập thông tin độc giả từ người dùng
         printf("ISBN sach (10 so): ");
-        fgets(isbn[count], MAX_VALUE, stdin);
+        fgets(isbn[countSach], MAX_VALUE, stdin);
         printf("Ten sach: ");
-        fgets(tensach[count], MAX_VALUE, stdin);
+        fgets(tensach[countSach], MAX_VALUE, stdin);
         printf("Tac gia: ");
-        fgets(tacgia[count], MAX_VALUE, stdin);
+        fgets(tacgia[countSach], MAX_VALUE, stdin);
         printf("Nha xuat ban: ");
-        fgets(nhaxuatban[count], MAX_VALUE, stdin);
+        fgets(nhaxuatban[countSach], MAX_VALUE, stdin);
         printf("Nam xuat ban: ");
-        fgets(namxuatban[count], MAX_VALUE, stdin);
+        fgets(namxuatban[countSach], MAX_VALUE, stdin);
         printf("The loai sach: ");
-        fgets(theloaisach[count], MAX_VALUE, stdin);
+        fgets(theloaisach[countSach], MAX_VALUE, stdin);
         printf("Gia sach: ");
-        fgets(giasach[count], MAX_VALUE, stdin);
+        fgets(giasach[countSach], MAX_VALUE, stdin);
         printf("So quyen sach: ");
-        fgets(soquyensach[count], MAX_VALUE, stdin);
+        fgets(soquyensach[countSach], MAX_VALUE, stdin);
         printf("So luong sach thuc te: ");
-        fgets(soluongthucte[count], MAX_VALUE, stdin);
+        fgets(soluongthucte[countSach], MAX_VALUE, stdin);
 
         // Xóa ký tự newline (\n) cuối chuỗi của fgets
-        isbn[count][strcspn(isbn[count], "\n")] = 0;
-        tensach[count][strcspn(tensach[count], "\n")] = 0;
-        tacgia[count][strcspn(tacgia[count], "\n")] = 0;
-        nhaxuatban[count][strcspn(nhaxuatban[count], "\n")] = 0;
-        namxuatban[count][strcspn(namxuatban[count], "\n")] = 0;
-        theloaisach[count][strcspn(theloaisach[count], "\n")] = 0;
-        giasach[count][strcspn(giasach[count], "\n")] = 0;
-        soquyensach[count][strcspn(soquyensach[count], "\n")] = 0;
-        soluongthucte[count][strcspn(soluongthucte[count], "\n")] = 0;
+        isbn[countSach][strcspn(isbn[countSach], "\n")] = 0;
+        tensach[countSach][strcspn(tensach[countSach], "\n")] = 0;
+        tacgia[countSach][strcspn(tacgia[countSach], "\n")] = 0;
+        nhaxuatban[countSach][strcspn(nhaxuatban[countSach], "\n")] = 0;
+        namxuatban[countSach][strcspn(namxuatban[countSach], "\n")] = 0;
+        theloaisach[countSach][strcspn(theloaisach[countSach], "\n")] = 0;
+        giasach[countSach][strcspn(giasach[countSach], "\n")] = 0;
+        soquyensach[countSach][strcspn(soquyensach[countSach], "\n")] = 0;
+        soluongthucte[countSach][strcspn(soluongthucte[countSach], "\n")] = 0;
 
-        // Tăng biến count sau khi thêm sach
-        count++;
+        // Tăng biến countSach sau khi thêm sach
+        countSach++;
 
         // Hỏi nhập người dùng tiếp hay thoát
         printf("Ban co muon nhap sach khac khong? y/n: ");
@@ -104,7 +104,7 @@ void themsachfunction()
             printf("Them sach thanh cong!\n");
 
             // In độc giả vừa thêm
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < countSach; i++)
             {
                 printf("Danh sach sach vua them la:\n");
                 printf("ISBN: %s\n", isbn[i]);
@@ -245,7 +245,7 @@ void xoasachfunction()
             getchar();
             if (choice == 'y' || choice == 'Y')
                 {
-                    for (i = index; i < count - 1; i++)
+                    for (i = index; i < countSach - 1; i++)
                     {
                         strcpy (isbn[i], isbn[i+1]);
                         strcpy(tensach[i], tensach[i + 1]);
@@ -257,7 +257,7 @@ void xoasachfunction()
                         strcpy(soquyensach[i], soquyensach[i + 1]);
                         strcpy(soluongthucte[i], soluongthucte[i + 1]);
                     }
-                count--;
+                countSach--;
                 printf("Xoa sach thanh cong.\n");
                 }
             else
@@ -290,7 +290,7 @@ int timkiemisbnfunction()
         char tempisbn[11];
         printf("Nhap isbn can tim (10 so): ");
         scanf("%s", tempisbn);
-        for (i=0; i<count; i++)
+        for (i=0; i<countSach; i++)
             {
                 if (strcmp(tempisbn, isbn[i]) == 0)
                 //In sach da tim thay
@@ -337,7 +337,7 @@ void timkiemsachtheotensach()
     fgets(temptensach, MAX_VALUE, stdin);
     //xoa ky tu newline cho fgets
     temptensach[strcspn(temptensach, "\n")] = 0;
-    for (i=0; i<count; i++)
+    for (i=0; i<countSach; i++)
         {
             if (strcmp(temptensach, tensach[i]) == 0)
                 {
@@ -353,7 +353,7 @@ void timkiemsachtheotensach()
                     break;
                 }
         }
-        if (i==count)
+        if (i==countSach)
             {
                 printf("Khong tim thay sach\n.");
             }

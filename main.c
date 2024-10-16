@@ -5,7 +5,7 @@
 // Tao cac array de luu du lieu
 
 //CHUONG TRINH CHINH 
-int main ()
+int mainTemp ()
 {
     int luachon;
     while(1)

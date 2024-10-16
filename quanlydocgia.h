@@ -19,7 +19,7 @@ extern char *email[MAX_VALUE];
 extern char *diachi[MAX_VALUE];
 
 // Biến đếm số lượng độc giả
-extern int count;
+extern int countDocGia;
 
 // Khai báo prototype của các hàm quản lý độc giả
 void xemdocgiafunction();

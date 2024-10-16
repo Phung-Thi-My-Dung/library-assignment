@@ -14,7 +14,7 @@ extern char *theloaisach[MAX_VALUE];
 extern char *giasach[MAX_VALUE];
 extern char *soquyensach[MAX_VALUE];
 extern char *soluongthucte[MAX_VALUE];
-extern int count;
+extern int countSach;
 
 // Khai báo các hàm sử dụng trong chương trình quản lý sách
 void xemsachfunction();               // Hàm xem danh sách sách

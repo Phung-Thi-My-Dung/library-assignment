@@ -22,7 +22,7 @@ int *songayquahan[MAX_VALUE];
 char *danhsachisbn[MAX_VALUE];
 int tienphat;
 int tienden;
-int count=0;
+int countPhieuMuon=0;
 int isbncount = 0;
 // Ham tim phieu muon
 int timphieumuonfunction()
@@ -35,7 +35,7 @@ int timphieumuonfunction()
         printf("Nhap so phieu muon (so nguyen tu 0): ");
         scanf("%d", &tempphieumuon);
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < countPhieuMuon; i++)
         {
             if (tempphieumuon == phieumuon[i])  
                 printf("Phieu muon: %d\n", phieumuon[i]);
@@ -60,15 +60,15 @@ int timphieumuonfunction()
 // phieu muon moi
 void phieumuonmoifunction()
 {   // Cap phat bo nho cho cac chuoi con tro
-    phieumuon[count] = (int *)malloc(sizeof(int)); 
-    tinhtrangphieumuon[count] = (int *)malloc(sizeof(int)); 
+    phieumuon[countPhieuMuon] = (int *)malloc(sizeof(int)); 
+    tinhtrangphieumuon[countPhieuMuon] = (int *)malloc(sizeof(int)); 
     // Tu tao ma phieu muon
-        sprintf(phieumuon[count], "%d", count);
+        sprintf(phieumuon[countPhieuMuon], "%d", countPhieuMuon);
     // Tu tao trang thai phieu muon
-        tinhtrangphieumuon[count] = 0;
-        printf("Ma phieu muon: %d\n", phieumuon[count]);
+        tinhtrangphieumuon[countPhieuMuon] = 0;
+        printf("Ma phieu muon: %d\n", phieumuon[countPhieuMuon]);
         printf("Tinh trang phieu muon: waiting (0)\n");
-    count++;
+    countPhieuMuon++;
 }
 
 // Ham lap phieu muon

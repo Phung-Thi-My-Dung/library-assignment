@@ -19,20 +19,20 @@ int *thanghethanthe[MAX_VALUE];
 int *namhethanthe[MAX_VALUE];
 int tinhtrangthe;
 
-int count = 0;
+int countDocGia = 0;
 // Ham xem danh sach doc gia
 void xemdocgiafunction() 
 {
     while(1)
     {
-        if (count == 0) 
+        if (countDocGia == 0) 
         {
             printf("Khong co doc gia nao hien co.\n");
         } else 
         {
             printf("Danh sach cac doc gia:\n");
-            printf("So luong doc gia: %d\n", count);
-            for (int i = 0; i < count; i++) 
+            printf("So luong doc gia: %d\n", countDocGia);
+            for (int i = 0; i < countDocGia; i++) 
             {
                 printf("Ma doc gia: %s\n", madocgia[i]);
                 printf("Ho va ten: %s\n", hotendocgia[i]);
@@ -54,42 +54,42 @@ void themdocgiafunction()
     while (1)
     {
         // Cấp phát bộ nhớ cho chuỗi con trỏ
-        madocgia[count] = malloc(4 * sizeof(char));
-        hotendocgia[count] = malloc(MAX_VALUE * sizeof(char));
-        cmnd[count] = malloc(MAX_VALUE * sizeof(char));
-        ngaythangnamsinh[count] = malloc(MAX_VALUE * sizeof(char));
-        gioitinh[count] = malloc(MAX_VALUE * sizeof(char));
-        email[count] = malloc(MAX_VALUE * sizeof(char));
-        diachi[count] = malloc(MAX_VALUE * sizeof(char));
+        madocgia[countDocGia] = malloc(4 * sizeof(char));
+        hotendocgia[countDocGia] = malloc(MAX_VALUE * sizeof(char));
+        cmnd[countDocGia] = malloc(MAX_VALUE * sizeof(char));
+        ngaythangnamsinh[countDocGia] = malloc(MAX_VALUE * sizeof(char));
+        gioitinh[countDocGia] = malloc(MAX_VALUE * sizeof(char));
+        email[countDocGia] = malloc(MAX_VALUE * sizeof(char));
+        diachi[countDocGia] = malloc(MAX_VALUE * sizeof(char));
 
         // Tự tạo mã độc giả
-        sprintf(madocgia[count], "%03d", count);
+        sprintf(madocgia[countDocGia], "%03d", countDocGia);
 
         // Nhập thông tin độc giả từ người dùng
-        printf("\nMa doc gia: %s\n", madocgia[count]);
+        printf("\nMa doc gia: %s\n", madocgia[countDocGia]);
         printf("Ho va ten doc gia: ");
-        fgets(hotendocgia[count], MAX_VALUE, stdin);
+        fgets(hotendocgia[countDocGia], MAX_VALUE, stdin);
         printf("CMND (10 so): ");
-        fgets(cmnd[count], MAX_VALUE, stdin);
+        fgets(cmnd[countDocGia], MAX_VALUE, stdin);
         printf("Ngay thang nam sinh: ");
-        fgets(ngaythangnamsinh[count], MAX_VALUE, stdin);
+        fgets(ngaythangnamsinh[countDocGia], MAX_VALUE, stdin);
         printf("Gioi tinh: ");
-        fgets(gioitinh[count], MAX_VALUE, stdin);
+        fgets(gioitinh[countDocGia], MAX_VALUE, stdin);
         printf("Email: ");
-        fgets(email[count], MAX_VALUE, stdin);
+        fgets(email[countDocGia], MAX_VALUE, stdin);
         printf("Dia chi: ");
-        fgets(diachi[count], MAX_VALUE, stdin);
+        fgets(diachi[countDocGia], MAX_VALUE, stdin);
 
         // Xóa ký tự newline (\n) cuối chuỗi của fgets
-        hotendocgia[count][strcspn(hotendocgia[count], "\n")] = 0;
-        cmnd[count][strcspn(cmnd[count], "\n")] = 0;
-        ngaythangnamsinh[count][strcspn(ngaythangnamsinh[count], "\n")] = 0;
-        gioitinh[count][strcspn(gioitinh[count], "\n")] = 0;
-        email[count][strcspn(email[count], "\n")] = 0;
-        diachi[count][strcspn(diachi[count], "\n")] = 0;
+        hotendocgia[countDocGia][strcspn(hotendocgia[countDocGia], "\n")] = 0;
+        cmnd[countDocGia][strcspn(cmnd[countDocGia], "\n")] = 0;
+        ngaythangnamsinh[countDocGia][strcspn(ngaythangnamsinh[countDocGia], "\n")] = 0;
+        gioitinh[countDocGia][strcspn(gioitinh[countDocGia], "\n")] = 0;
+        email[countDocGia][strcspn(email[countDocGia], "\n")] = 0;
+        diachi[countDocGia][strcspn(diachi[countDocGia], "\n")] = 0;
 
-        // Tăng biến count sau khi thêm người dùng
-        count++;
+        // Tăng biến countDocGia sau khi thêm người dùng
+        countDocGia++;
 
         // Hỏi nhập người dùng tiếp hay thoát
         printf("Ban co muon nhap nguoi dung khac khong? y/n: ");
@@ -101,7 +101,7 @@ void themdocgiafunction()
             printf("Them doc gia thanh cong!\n");
 
             // In độc giả vừa thêm
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < countDocGia; i++)
             {
                 printf("Danh sach doc gia vua them la:\n");
                 printf("Ma doc gia: %s\n", madocgia[i]);
@@ -224,7 +224,7 @@ void xoadocgiafunction()
             getchar();
             if (choice == 'y' || choice == 'Y')
                 {
-                    for (i = index; i < count - 1; i++)
+                    for (i = index; i < countDocGia - 1; i++)
                     {
                         strcpy (madocgia[i], madocgia[i+1]);
                         strcpy(hotendocgia[i], hotendocgia[i + 1]);
@@ -234,7 +234,7 @@ void xoadocgiafunction()
                         strcpy(email[i], email[i + 1]);
                         strcpy(diachi[i], diachi[i + 1]);
                     }
-                count--;
+                countDocGia--;
                 printf("Xoa doc gia thanh cong.\n");
                 }
             else
@@ -266,7 +266,7 @@ int timkiemcmndfunction()
         char tempcmnd[11];
         printf("Nhap cmnd can tim (10 so): ");
         scanf("%s", tempcmnd);
-        for (i=0; i<count; i++)
+        for (i=0; i<countDocGia; i++)
             {
                 if (strcmp(tempcmnd, cmnd[i]) == 0)
                 //In doc gia da tim thay
@@ -311,7 +311,7 @@ void timkiemhotenfunction()
     fgets(temphoten, MAX_VALUE, stdin);
     //xoa ky tu newline cho fgets
     temphoten[strcspn(temphoten, "\n")] = 0;
-    for (i=0; i<count; i++)
+    for (i=0; i<countDocGia; i++)
         {
             if (strcmp(temphoten, hotendocgia[i]) == 0)
                 {
@@ -325,7 +325,7 @@ void timkiemhotenfunction()
                     break;
                 }
         }
-        if (i==count)
+        if (i==countDocGia)
             {
                 printf("Khong tim thay doc gia.");
             }
